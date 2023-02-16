@@ -1,28 +1,22 @@
 import React from 'react'
-import {SEO} from "./Seo";
 import {Helmet} from "react-helmet";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const Layout = ({children}) => {
-    const year = new Date().getFullYear();
-    return (
-        <div>
-            <Helmet>
-                <title>SAP Transaktionen im Überblick - Espresso Tutorials GmbH</title>
-            </Helmet>
-            <Header/>
-            <main>
+class Layout extends React.Component {
+    render() {
+        const { children } = this.props
+        return (
+            <div>
+                <Helmet>
+                    <title>SAP Transaktionen im Überblick - Espresso Tutorials GmbH</title>
+                </Helmet>
+                <Header/>
                 {children}
-            </main>
-            <Footer/>
-        </div>
-    )
+                <Footer/>
+            </div>
+        )
+    }
 }
 
 export default Layout
-
-export const Head = () => (
-    <SEO/>
-)
-
